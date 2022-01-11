@@ -25,7 +25,7 @@ const TableData = () => {
                 <tr key = {update.versionNumber}>
                     <td key = {update.libraryName}>{update.libraryName}</td>
                     <td key = {update.versionNumber}>{update.versionNumber}</td>
-                    <td key = {update.link}>{update.link}</td>
+                    <td key = {update.link}><a className="linkClass" target="_blank" rel="noreferrer" href="https://docs.splunk.com/Documentation/Splunk/latest/ReleaseNotes/MeetSplunk">{update.link}</a></td>
                     <td><NotificationsIcon /></td>
                 </tr>
             ))}
