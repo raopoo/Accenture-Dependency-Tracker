@@ -63,7 +63,7 @@ const TableData = () => {
                                             className="linkClass"
                                             target="_blank"
                                             rel="noreferrer"
-                                            href="https://docs.splunk.com/Documentation/Splunk/latest/ReleaseNotes/MeetSplunk"
+                                            href={update.link}
                                         >
                                             {update.link}
                                         </a>

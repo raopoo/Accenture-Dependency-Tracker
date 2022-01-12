@@ -33,7 +33,7 @@ const newNav = () => {
                         />
                         <SearchIcon sx={{ color: grey[50] }} fontSize="large" />
                     </Form>
-                    <Button href="/login" variant="light">
+                    <Button href="/login" variant="light" className="loginBtn">
                         Login
                     </Button>
                 </Navbar.Collapse>
