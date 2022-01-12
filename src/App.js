@@ -5,6 +5,7 @@ import TableData from "./Components/Table";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Subscription from "./Containers/Pages/Subscription";
 import Libraries from "./Containers/Pages/Libraries";
+import Login from "./Containers/Pages/Login";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                         path="/libraries"
                         element={<Libraries></Libraries>}
                     ></Route>
+                    <Route path="/login" element={<Login></Login>}></Route>
                 </Routes>
             </Router>
         </div>
