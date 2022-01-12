@@ -1,16 +1,7 @@
-// .formContainer {
-//     width: 40vw;
-//     // position: fixed;
-//     // left: 298px;
-//     // top: 100px;
-// }
 
-// .container {
-//     display: flex;
-//     justify-content: center;
-//     padding-top: 70px;
-// }
-
+.heading{
+    margin: 1rem;
+}
 .label {
     text-align: left;
 }
@@ -18,9 +9,7 @@
 
 .loginForm{
     border: black solid 2px;
-    width:80%;
-    // display: flex;
-    // justify-content: center;
+    width:50%;
     padding: 10px;
-    margin: 30px;
+    margin: 100px 20%;
 }

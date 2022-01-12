@@ -5,13 +5,14 @@ import { Form, Button } from "react-bootstrap";
 
 const Login = () => {
     return (
-        <div className="loginForm">
-            <Form>
+        <div>
+            <h1 className="heading">Login</h1>
+            <Form className="loginForm">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                <div className="label">
-                <Form.Label >Email address:</Form.Label>    
-                </div>
-                    
+                    <div className="label">
+                        <Form.Label>Email address:</Form.Label>
+                    </div>
+
                     <Form.Control type="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
@@ -19,13 +20,13 @@ const Login = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                <div className="label">
-                    <Form.Label>Password:</Form.Label>
-                </div>   
+                    <div className="label">
+                        <Form.Label>Password:</Form.Label>
+                    </div>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="dark" type="submit">
                     Submit
                 </Button>
             </Form>

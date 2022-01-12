@@ -3,7 +3,6 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Dashboard from './Containers/Pages/Dashboard';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Subscription from "./Containers/Pages/Subscription";
 import Libraries from "./Containers/Pages/Libraries";
 import Login from "./Containers/Pages/Login";
 
@@ -14,10 +13,6 @@ function App() {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<Dashboard />}></Route>
-                    <Route
-                        path="/subscription"
-                        element={<Subscription></Subscription>}
-                    ></Route>
                     <Route
                         path="/libraries"
                         element={<Libraries></Libraries>}
