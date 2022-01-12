@@ -9,7 +9,12 @@ const TableData = () => {
     const [show, setShow] = useState(false);
     const [data, setData] = useState(null);
 
+    // const [counter, setCounter] = useState(0);
+
+    let counter = 0;
+
     const callFunction = () => {
+        console.log(counter);
         try {
             axios
                 .get(
@@ -22,8 +27,17 @@ const TableData = () => {
                     }
                     setData(latestUpdates);
                     console.log(latestUpdates);
+                })
+                .catch((e) => {
+                    console.log("hi");
+                    console.log(e);
+                    if (counter < 2) {
+                        counter += 1;
+                        callFunction();
+                    } else console.log("the app entirely exploded!");
                 });
         } catch (e) {
+            console.log("hi");
             console.log(e);
         }
     };
