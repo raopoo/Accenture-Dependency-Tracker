@@ -3,11 +3,24 @@ import "./Table.scss";
 import Table from 'react-bootstrap/Table';
 import ModalFunc from '../Modal';
 
+import {useState} from 'react';
+
 
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
+
+
 const TableData = () => {
     
+  const [show, setShow] = useState(false);
+  
+    const handleClose = () =>{
+      setShow(false)
+    };
+    const handleShow = () => {
+      setShow(true);
+     
+    }
 
   return (
       <div className="tableDiv">
@@ -26,12 +39,14 @@ const TableData = () => {
                     <td key = {update.libraryName}>{update.libraryName}</td>
                     <td key = {update.versionNumber}>{update.versionNumber}</td>
                     <td key = {update.link}><a className="linkClass" target="_blank" rel="noreferrer" href="https://docs.splunk.com/Documentation/Splunk/latest/ReleaseNotes/MeetSplunk">{update.link}</a></td>
-                    <td><NotificationsIcon /></td>
+                    <td><NotificationsIcon onClick={handleShow} /></td> 
                 </tr>
+
             ))}
         </tbody>
             
         </Table>
+        <ModalFunc show={show} handleClose={handleClose} />
       </div>
         
     );
