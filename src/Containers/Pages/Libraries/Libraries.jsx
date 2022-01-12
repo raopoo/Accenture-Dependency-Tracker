@@ -1,4 +1,5 @@
-import Table from 'react-bootstrap/Table';
+import {Table, Form} from 'react-bootstrap';
+
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const Libraries = () => {
@@ -19,23 +20,36 @@ const Libraries = () => {
     <tr>
       <td>1</td>
       <td>Splunk</td>
-      <td><NotificationsIcon /></td>
+      <td> <Form.Check
+        inline
+        name="group1"
+        checked
+      /></td>
    
     </tr>
     <tr>
       <td>2</td>
       <td>Bootstrap</td>
-      <td><NotificationsIcon /></td>
+      <td> <Form.Check
+        inline
+        name="group1"
+      /></td>
     </tr>
     <tr>
       <td>3</td>
       <td>AWS Amplify</td>
-      <td><NotificationsIcon /></td>
+      <td> <Form.Check
+        inline
+        name="group1"
+      /></td>
     </tr>
     <tr>
       <td>4</td>
       <td>BeautifulSoup</td>
-      <td><NotificationsIcon /></td>
+      <td> <Form.Check
+        inline
+        name="group1"
+      /></td>
     </tr>
   </tbody>
 </Table>
