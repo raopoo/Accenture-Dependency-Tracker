@@ -19,7 +19,7 @@ const newNav = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Dashboard</Nav.Link>
-                        <Nav.Link href="/subscription">Subscription</Nav.Link>
+                        {/* <Nav.Link href="/subscription">My Subscription</Nav.Link> */}
                         <Nav.Link href="/libraries">
                             Supported Libraries
                         </Nav.Link>

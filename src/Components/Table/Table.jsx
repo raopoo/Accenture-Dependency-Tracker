@@ -4,8 +4,6 @@ import Table from 'react-bootstrap/Table';
 import ModalFunc from '../Modal';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-
-
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
 
