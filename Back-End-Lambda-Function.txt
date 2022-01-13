@@ -1,0 +1,35 @@
+import requests
+import time
+import json
+from bs4 import BeautifulSoup
+
+def main():
+    url="https://docs.splunk.com/Documentation/Splunk/latest/ReleaseNotes/MeetSplunk"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content,'html.parser')
+    all_versions = []
+    all_versions_large = []
+
+    for link in soup.find_all("option"):
+      if link.text[0].isdigit():
+        version_num = link.text[0:5]
+        all_versions.append(link.text) 
+        all_versions_large.append({"libraryName":"Splunk","versionNumber":link.text,"link":f"https://docs.splunk.com/Documentation/Splunk/{version_num}/ReleaseNotes/MeetSplunk"})
+    all_versions_large.reverse()
+    return all_versions_large
+
+
+
+def lambda_handler(event, context):
+    data = main()
+
+    return {
+        "statusCode": 200,
+        'headers': {
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+        },
+        "body": json.dumps(data),
+    }
+    
