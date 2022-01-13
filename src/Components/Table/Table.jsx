@@ -1,6 +1,6 @@
 //import data from "../../data";
 import "./Table.scss";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Form } from "react-bootstrap";
 import ModalFunc from "../Modal";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -8,8 +8,15 @@ import { useState, useEffect } from "react";
 const TableData = () => {
     const [show, setShow] = useState(false);
     const [data, setData] = useState(null);
+    const [allApiData,setAllApiData] = useState([]);
 
-    // const [counter, setCounter] = useState(0);
+    const numOfResults = 10;
+
+    const handleSelect = (e) => {
+    console.log(e.target.value);
+    setData(allApiData.slice(0, e.target.value));
+  };
+  
 
     let counter = 0;
 
@@ -21,8 +28,9 @@ const TableData = () => {
                     "https://4026a4upzi.execute-api.ap-southeast-2.amazonaws.com/hello"
                 )
                 .then((result) => {
+                    setAllApiData(result.data);
                     let latestUpdates = [];
-                    for (let i = 0; i < 10; i++) {
+                    for (let i = 0; i < numOfResults; i++) {
                         latestUpdates.push(result.data[i]);
                     }
                     setData(latestUpdates);
@@ -52,47 +60,63 @@ const TableData = () => {
     };
 
     return (
-        <div className="tableDiv">
-            {data ? (
-                <>
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>Library Name</th>
-                                <th>Version Number</th>
-                                <th>Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.map((update) => (
-                                <tr key={update.versionNumber}>
-                                    <td key={update.libraryName}>
-                                        {update.libraryName}
-                                    </td>
-                                    <td key={update.versionNumber}>
-                                        {update.versionNumber}
-                                    </td>
-                                    <td key={update.link}>
-                                        <a
-                                            className="linkClass"
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            href={update.link}
-                                        >
-                                            {update.link}
-                                        </a>
-                                    </td>
+        <div className="dashboard">
+            <div className="tableDiv">
+                {data ? (
+                    <>  <Button className="mailBtn" onClick={handleShow}>
+                            Add me to Mail list
+                        </Button>
+                        <Form.Select
+                            aria-label="Default select example"
+                            onChange={handleSelect}
+                            className="selectDiv"
+                        >
+                            {/* <option>Open this select menu</option> */}
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                        </Form.Select>
+                        <Table striped bordered hover>
+                            <thead>
+                                <tr>
+                                    <th>Library Name</th>
+                                    <th>Version Number</th>
+                                    <th>Link</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </Table>
-                    <Button variant="dark" onClick={handleShow}>Add me to Mail list</Button>
-                </>
-            ) : (
-                <h1>Loading...</h1>
-            )}
+                            </thead>
+                            <tbody>
+                                {data.map((update) => (
+                                    <tr key={update.versionNumber}>
+                                        <td key={update.libraryName}>
+                                            {update.libraryName}
+                                        </td>
+                                        <td key={update.versionNumber}>
+                                            {update.versionNumber}
+                                        </td>
+                                        <td key={update.link}>
+                                            <a
+                                                className="linkClass"
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                href={update.link}
+                                            >
+                                                {update.link}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                        
+                    </>
+                ) : (
+                    <h1>Loading...</h1>
+                )}
 
-            <ModalFunc show={show} handleClose={handleClose} />
+                <ModalFunc show={show} handleClose={handleClose} />
+            </div>
         </div>
     );
 };

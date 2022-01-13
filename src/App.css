@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #f2e2ff;
+  height: 100%;
 }
+
 
 .App-logo {
   height: 40vmin;

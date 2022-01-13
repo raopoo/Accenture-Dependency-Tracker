@@ -1,8 +1,11 @@
 import TableData from "../../../Components/Table";
-
+import './Dashboard.scss';
 const Dashboard = () =>{
  return(
-     <TableData />
+     <div className="dashboard">
+         <TableData />
+     </div>
+    
  )
 }
 

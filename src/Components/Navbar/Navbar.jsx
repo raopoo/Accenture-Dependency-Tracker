@@ -12,7 +12,7 @@ import { grey } from "@mui/material/colors";
 
 const newNav = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" variant="dark" className="navClass">
             <Container>
                 <Navbar.Brand href="#home">Dependency-Tracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -38,7 +38,7 @@ const newNav = () => {
                     </Button>
                 </Navbar.Collapse>
             </Container>
-            /{" "}
+            {" "}
         </Navbar>
     );
 };

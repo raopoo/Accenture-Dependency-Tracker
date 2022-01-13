@@ -1,9 +1,23 @@
 .tableDiv{
     margin: 100px 10%;
     width: 80%;
+    // background-color: #f2e2ff;
+    // display: flex;
+    // flex-direction: column;
 }
 
 .linkClass{
     text-decoration: none;
     color: black;
+}
+
+.selectDiv{
+    width: 10%;
+    margin : 1rem 0;
+    
+}
+
+.mailBtn{
+    background-color: #5b5b5b;
+    border: none;
 }
